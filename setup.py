@@ -1,6 +1,5 @@
 import os
 import sys
-
 sys.path.insert(0, os.path.abspath('lib'))
 from ansible.release import __version__, __author__
 try:
@@ -10,14 +9,12 @@ except ImportError:
             " your package manager (usually python-setuptools) or via pip (pip"
             " install setuptools).")
     sys.exit(1)
-
 with open('requirements.txt') as requirements_file:
     install_requirements = requirements_file.read().splitlines()
     if not install_requirements:
         print("Unable to read requirements from the requirements.txt file"
                 "That indicates this copy of the source code is incomplete.")
         sys.exit(2)
-
 setup(
     name='ansible',
     version=__version__,
